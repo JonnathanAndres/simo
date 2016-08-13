@@ -2,12 +2,14 @@ package com.jari.example.navigationdrawer.Services;
 
 import com.jari.example.navigationdrawer.Model.Departamento;
 import com.jari.example.navigationdrawer.Model.ResultadoOfertaPublica;
+import com.jari.example.navigationdrawer.Model.opecvisible.generales.convocatoria.EmpleoPorConvocatoria;
+import com.jari.example.navigationdrawer.Model.opecvisible.generales.departamento.EmpleoPorDepartamento;
+import com.jari.example.navigationdrawer.Model.opecvisible.generales.rango.EmpleoPorRango;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 
@@ -19,6 +21,13 @@ public interface ApiInterface {
     Call<List<Object>> getOfertaPublica(@Query("search_palabraClave")String palabraClave);
     @GET("ofertaPublica/")
     Call<List<ResultadoOfertaPublica>> getOfertaPublica(@Query("search_palabraClave")String palabraClave, @Query("size")int numeroRegistros);
+
+    @GET("convocatorias")
+    Call<List<EmpleoPorConvocatoria>> getEmpleosPorConvocatorias();
+    @GET("rangos")
+    Call<List<EmpleoPorRango>> getEmpleosPorRangos();
+    @GET("departamento")
+    Call<List<EmpleoPorDepartamento>> getEmpleosPorDepartamentos();
 
 
 //    @GET("movie/top_rated")
