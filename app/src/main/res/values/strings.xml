@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Convocatorias SIMO-CNSC</string>
+    <string name="variables_generales">VARIABLES_GENERALES</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="fragment1">Fragment One</string>
+</resources>
