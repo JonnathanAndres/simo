@@ -1,10 +1,15 @@
 <resources>
     <string name="app_name">Convocatorias SIMO-CNSC</string>
     <string name="variables_generales">VARIABLES_GENERALES</string>
+    <string name="tag">SIMO</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
     <string name="fragment1">Fragment One</string>
+
+    <string name="fragment_empleo_x_convocatoria">Empleos por Convocatoria</string>
+    <string name="fragment_empleo_x_rango">Empleos por Rango</string>
+    <string name="fragment_empleo_x_departamento">Empleos por Departamento</string>
 </resources>

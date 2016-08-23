@@ -1,10 +1,10 @@
-package com.jari.example.navigationdrawer.Services;
+package com.jari.example.navigationdrawer.services;
 
-import com.jari.example.navigationdrawer.Model.Departamento;
-import com.jari.example.navigationdrawer.Model.ResultadoOfertaPublica;
-import com.jari.example.navigationdrawer.Model.opecvisible.generales.convocatoria.EmpleoPorConvocatoria;
-import com.jari.example.navigationdrawer.Model.opecvisible.generales.departamento.EmpleoPorDepartamento;
-import com.jari.example.navigationdrawer.Model.opecvisible.generales.rango.EmpleoPorRango;
+import com.jari.example.navigationdrawer.models.Departamento;
+import com.jari.example.navigationdrawer.models.ResultadoOfertaPublica;
+import com.jari.example.navigationdrawer.models.opecvisible.generales.convocatoria.EmpleoPorConvocatoria;
+import com.jari.example.navigationdrawer.models.opecvisible.generales.departamento.EmpleoPorDepartamento;
+import com.jari.example.navigationdrawer.models.opecvisible.generales.rango.EmpleoPorRango;
 
 import java.util.List;
 

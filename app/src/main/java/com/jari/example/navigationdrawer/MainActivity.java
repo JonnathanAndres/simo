@@ -15,11 +15,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.jari.example.navigationdrawer.Fragment.Fragment1;
-import com.jari.example.navigationdrawer.Model.Departamento;
-import com.jari.example.navigationdrawer.Model.ResultadoOfertaPublica;
-import com.jari.example.navigationdrawer.Services.ApiClient;
-import com.jari.example.navigationdrawer.Services.ApiInterface;
+import com.jari.example.navigationdrawer.fragments.Fragment1;
+import com.jari.example.navigationdrawer.fragments.FragmentInicial;
+import com.jari.example.navigationdrawer.models.Departamento;
+import com.jari.example.navigationdrawer.models.ResultadoOfertaPublica;
+import com.jari.example.navigationdrawer.services.ApiClient;
+import com.jari.example.navigationdrawer.services.ApiInterface;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -62,6 +63,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         cargarDatosGenerales();
 //        cargarEmpleosPublicos("sistemas");
         cargarEmpleosPublicos("sistemas", NUMERO_REGISTROS);
+        cargarFragmentInicial();
+    }
+
+    private void cargarFragmentInicial() {
+        Fragment fragment = new FragmentInicial();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.content_frame, fragment)
+                .commit();
     }
 
     @Override

@@ -1,9 +1,4 @@
-package com.jari.example.navigationdrawer.Utilidades;
-
-import android.content.Context;
-import android.content.SharedPreferences;
-
-import com.jari.example.navigationdrawer.R;
+package com.jari.example.navigationdrawer.utilidades;
 
 /**
  * Created by admin on 12/08/2016.

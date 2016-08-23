@@ -1,4 +1,4 @@
-package com.jari.example.navigationdrawer.Services;
+package com.jari.example.navigationdrawer.services;
 
 import java.util.concurrent.TimeUnit;
 
