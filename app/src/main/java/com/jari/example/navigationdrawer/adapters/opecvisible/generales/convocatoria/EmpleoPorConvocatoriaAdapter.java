@@ -20,22 +20,14 @@ public class EmpleoPorConvocatoriaAdapter extends RecyclerView.Adapter<EmpleoPor
     private List<EmpleoPorConvocatoria> empleos;
     private Context context;
 
-
     public static class MovieViewHolder extends RecyclerView.ViewHolder {
-        LinearLayout moviesLayout;
         TextView movieTitle;
         TextView data;
-        TextView movieDescription;
-        TextView rating;
-
 
         public MovieViewHolder(View v) {
             super(v);
-            moviesLayout = (LinearLayout) v.findViewById(R.id.movies_layout);
             movieTitle = (TextView) v.findViewById(R.id.title);
             data = (TextView) v.findViewById(R.id.subtitle);
-            movieDescription = (TextView) v.findViewById(R.id.description);
-            rating = (TextView) v.findViewById(R.id.rating);
         }
     }
 
@@ -57,14 +49,11 @@ public class EmpleoPorConvocatoriaAdapter extends RecyclerView.Adapter<EmpleoPor
 
         String desagregados = new String();
 
-        for (Desagregado item :
-                empleos.get(position).getDesagregados()) {
-            desagregados = (desagregados.length()==0?"":desagregados + "\n") + item.getDescripcion() + item.getValor();
+        for (Desagregado item : empleos.get(position).getDesagregados()) {
+            desagregados = (desagregados.length()==0?"":desagregados + "\n") + item.getDescripcion() + " - " + item.getValor();
         }
 
         holder.data.setText(desagregados);
-        holder.movieDescription.setText(empleos.get(position).getDescripcion());
-        holder.rating.setText(String.valueOf(empleos.get(position).getValor()));
     }
 
     @Override
