@@ -2,6 +2,7 @@ package com.jari.example.navigationdrawer.adapters.opecvisible.generales.convoca
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,6 @@ import java.util.List;
 public class EmpleoPorConvocatoriaAdapter extends RecyclerView.Adapter<EmpleoPorConvocatoriaAdapter.MovieViewHolder> {
 
     private List<EmpleoPorConvocatoria> empleos;
-    private int rowLayout;
     private Context context;
 
 
@@ -39,17 +39,14 @@ public class EmpleoPorConvocatoriaAdapter extends RecyclerView.Adapter<EmpleoPor
         }
     }
 
-    public EmpleoPorConvocatoriaAdapter(List<EmpleoPorConvocatoria> empleoPorConvocatorias, int rowLayout, Context context) {
+    public EmpleoPorConvocatoriaAdapter(List<EmpleoPorConvocatoria> empleoPorConvocatorias, Context context) {
         this.empleos = empleoPorConvocatorias;
-        this.rowLayout = rowLayout;
         this.context = context;
     }
 
     @Override
     public EmpleoPorConvocatoriaAdapter.MovieViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//        v = LayoutInflater.from(viewGroup.getContext())
-//                .inflate(R.layout.clientes_cliente_item, viewGroup, false);
-        View view = LayoutInflater.from(parent.getContext()).inflate(rowLayout, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_empleo_x_convocatoria, parent, false);
         return new MovieViewHolder(view);
     }
 
