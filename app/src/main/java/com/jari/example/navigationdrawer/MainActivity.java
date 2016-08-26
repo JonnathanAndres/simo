@@ -35,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     List<ResultadoOfertaPublica> _listaResultadoOfertaPublica;
     public static final int NUMERO_REGISTROS = 30;
 
+    private FragmentInicial _fragmentInicial;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,9 +69,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void cargarFragmentInicial() {
-        Fragment fragment = new FragmentInicial();
+        _fragmentInicial = new FragmentInicial();
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.content_frame, fragment)
+                .replace(R.id.content_frame, _fragmentInicial)
                 .commit();
     }
 
@@ -113,8 +115,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_home) {
             // Handle the camera action
+            if(_fragmentInicial == null)
+                _fragmentInicial = new FragmentInicial();
+            fragment = _fragmentInicial;
+            fragmentTransaction = true;
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -219,11 +225,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
     }
-
-
-    private void cargarEmpleosPorCategoria() {
-
-    }
-
 
 }

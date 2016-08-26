@@ -1,6 +1,7 @@
 package com.jari.example.navigationdrawer.fragments;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -19,11 +20,12 @@ import com.jari.example.navigationdrawer.R;
 public class FragmentInicial extends Fragment{
 
     private Toolbar toolbar;
+    private int _ultimaPosicion;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_inicial, container, false);
+        final View view = inflater.inflate(R.layout.fragment_inicial, container, false);
 
 //        toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 //        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
@@ -57,10 +59,24 @@ public class FragmentInicial extends Fragment{
             }
         });
 
+        new Handler().postDelayed(
+                new Runnable(){
+                    @Override
+                    public void run() {
+                        tabLayout.getTabAt(0).select();
+                        viewPager.setCurrentItem(0);
+                    }
+                }, 100);
         return view;
     }
 
-//    @Override
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+    }
+
+    //    @Override
 //    protected void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_main);
@@ -94,6 +110,7 @@ public class FragmentInicial extends Fragment{
         }
         @Override
         public Fragment getItem(int position) {
+            _ultimaPosicion = position;
             switch (position) {
                 case 0:
                     FragmentEmpleoPorConvocatoria tab1 = new FragmentEmpleoPorConvocatoria();
