@@ -22,51 +22,74 @@ public class FragmentInicial extends Fragment{
     private Toolbar toolbar;
     private int _ultimaPosicion;
 
+
+    FragmentEmpleoPorConvocatoria _fragmentEmpleoPorConvocatoria = null;
+
+    ViewPager viewPager = null;
+    ViewPagerAdapter adapter = null;
+    TabLayout tabLayout = null;
+    View view = null;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.fragment_inicial, container, false);
+        //final View
+        if (view == null)
+                view = inflater.inflate(R.layout.fragment_inicial, container, false);
 
 //        toolbar = (Toolbar) view.findViewById(R.id.toolbar);
 //        ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 //
 //        ((AppCompatActivity)getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        final TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabs);
+        //final TabLayout
+                if(tabLayout == null) {
+                    tabLayout = (TabLayout) view.findViewById(R.id.tabs);
 //        tabLayout.setupWithViewPager(viewPager);
 
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 1"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 2"));
-        tabLayout.addTab(tabLayout.newTab().setText("Tab 3"));
+                    tabLayout.addTab(tabLayout.newTab().setText("CONVOCATORIA"));
+                    tabLayout.addTab(tabLayout.newTab().setText("RANGO"));
+                    tabLayout.addTab(tabLayout.newTab().setText("DEPARTAMENTO"));
+                }
 
-        final ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewpager);
+        //final ViewPager
+        if(viewPager == null)
+                viewPager = (ViewPager) view.findViewById(R.id.viewpager);
 //        setupViewPager(viewPager);
-        final ViewPagerAdapter adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
-        viewPager.setAdapter(adapter);
+        //final ViewPagerAdapter
+        if(adapter == null) {
+            adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(), tabLayout.getTabCount());
+            viewPager.setAdapter(adapter);
 
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+            viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
-        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-            }
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-            }
-        });
 
-        new Handler().postDelayed(
-                new Runnable(){
-                    @Override
-                    public void run() {
-                        tabLayout.getTabAt(0).select();
-                        viewPager.setCurrentItem(0);
-                    }
-                }, 100);
+            tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+                @Override
+                public void onTabSelected(TabLayout.Tab tab) {
+                    viewPager.setCurrentItem(tab.getPosition());
+                }
+
+                @Override
+                public void onTabUnselected(TabLayout.Tab tab) {
+                }
+
+                @Override
+                public void onTabReselected(TabLayout.Tab tab) {
+                }
+            });
+        } else {
+            viewPager.setCurrentItem(_ultimaPosicion);
+        }
+
+//        new Handler().postDelayed(
+//                new Runnable(){
+//                    @Override
+//                    public void run() {
+//                        tabLayout.getTabAt(0).select();
+//                        viewPager.setCurrentItem(0);
+//                    }
+//                }, 100);
         return view;
     }
 
@@ -113,8 +136,11 @@ public class FragmentInicial extends Fragment{
             _ultimaPosicion = position;
             switch (position) {
                 case 0:
-                    FragmentEmpleoPorConvocatoria tab1 = new FragmentEmpleoPorConvocatoria();
-                    return tab1;
+                    if(_fragmentEmpleoPorConvocatoria == null)
+                        _fragmentEmpleoPorConvocatoria = new FragmentEmpleoPorConvocatoria();
+                    //FragmentEmpleoPorConvocatoria tab1 = new FragmentEmpleoPorConvocatoria();
+
+                    return _fragmentEmpleoPorConvocatoria;
                 case 1:
                     FragmentEmpleoPorRango tab2 = new FragmentEmpleoPorRango();
                     return tab2;
