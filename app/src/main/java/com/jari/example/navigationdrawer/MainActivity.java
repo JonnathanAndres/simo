@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.jari.example.navigationdrawer.fragments.Fragment1;
+import com.jari.example.navigationdrawer.fragments.FragmentBusqueda;
 import com.jari.example.navigationdrawer.fragments.FragmentInicial;
 import com.jari.example.navigationdrawer.models.Departamento;
 import com.jari.example.navigationdrawer.models.ResultadoOfertaPublica;
@@ -124,7 +125,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
-
+            fragment = new FragmentBusqueda();
+            fragmentTransaction = true;
         } else if (id == R.id.nav_manage) {
             fragment = new Fragment1();
             fragmentTransaction = true;

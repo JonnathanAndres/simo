@@ -12,4 +12,11 @@
     <string name="fragment_empleo_x_convocatoria">Empleos por Convocatoria</string>
     <string name="fragment_empleo_x_rango">Empleos por Rango</string>
     <string name="fragment_empleo_x_departamento">Empleos por Departamento</string>
+
+    <string name="fragment_busqueda_filtros">Filtros</string>
+    <string name="menu_busqueda_palabraclave">Palabra clave</string>
+    <string name="dialog_fragment_filtros_busqueda_titulo">Seleccione los filtros.</string>
+    <string name="dialog_fragment_filtros_busqueda_tag">filtros_busqueda</string>
+    <string name="dialog_fragment_filtros_aplicar">Aplicar</string>
+    <string name="dialog_fragment_filtros_limpiar">Limpiar</string>
 </resources>
